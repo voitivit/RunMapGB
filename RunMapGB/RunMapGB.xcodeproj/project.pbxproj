@@ -13,11 +13,9 @@
 		F775F9F428193AA7009A0A1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F775F9F228193AA7009A0A1A /* Main.storyboard */; };
 		F775F9F628193AA8009A0A1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F775F9F528193AA8009A0A1A /* Assets.xcassets */; };
 		F775F9F928193AA8009A0A1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F775F9F728193AA8009A0A1A /* LaunchScreen.storyboard */; };
-		F775FA0228193B4B009A0A1A /* GoogleMaps in Frameworks */ = {isa = PBXBuildFile; productRef = F775FA0128193B4B009A0A1A /* GoogleMaps */; };
-		F775FA0428193B4B009A0A1A /* GoogleMapsBase in Frameworks */ = {isa = PBXBuildFile; productRef = F775FA0328193B4B009A0A1A /* GoogleMapsBase */; };
-		F775FA0628193B4B009A0A1A /* GoogleMapsCore in Frameworks */ = {isa = PBXBuildFile; productRef = F775FA0528193B4B009A0A1A /* GoogleMapsCore */; };
-		F775FA0828193B4C009A0A1A /* GoogleMapsM4B in Frameworks */ = {isa = PBXBuildFile; productRef = F775FA0728193B4C009A0A1A /* GoogleMapsM4B */; };
-		F775FA0A28193B4C009A0A1A /* GooglePlaces in Frameworks */ = {isa = PBXBuildFile; productRef = F775FA0928193B4C009A0A1A /* GooglePlaces */; };
+		F775FA0D28193EEA009A0A1A /* GoogleMaps in Frameworks */ = {isa = PBXBuildFile; productRef = F775FA0C28193EEA009A0A1A /* GoogleMaps */; };
+		F775FA102819423C009A0A1A /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F775FA0F2819423C009A0A1A /* Realm */; };
+		F775FA122819423C009A0A1A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F775FA112819423C009A0A1A /* RealmSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,11 +34,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F775FA0228193B4B009A0A1A /* GoogleMaps in Frameworks */,
-				F775FA0628193B4B009A0A1A /* GoogleMapsCore in Frameworks */,
-				F775FA0828193B4C009A0A1A /* GoogleMapsM4B in Frameworks */,
-				F775FA0A28193B4C009A0A1A /* GooglePlaces in Frameworks */,
-				F775FA0428193B4B009A0A1A /* GoogleMapsBase in Frameworks */,
+				F775FA122819423C009A0A1A /* RealmSwift in Frameworks */,
+				F775FA102819423C009A0A1A /* Realm in Frameworks */,
+				F775FA0D28193EEA009A0A1A /* GoogleMaps in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,11 +90,9 @@
 			);
 			name = RunMapGB;
 			packageProductDependencies = (
-				F775FA0128193B4B009A0A1A /* GoogleMaps */,
-				F775FA0328193B4B009A0A1A /* GoogleMapsBase */,
-				F775FA0528193B4B009A0A1A /* GoogleMapsCore */,
-				F775FA0728193B4C009A0A1A /* GoogleMapsM4B */,
-				F775FA0928193B4C009A0A1A /* GooglePlaces */,
+				F775FA0C28193EEA009A0A1A /* GoogleMaps */,
+				F775FA0F2819423C009A0A1A /* Realm */,
+				F775FA112819423C009A0A1A /* RealmSwift */,
 			);
 			productName = RunMapGB;
 			productReference = F775F9E928193AA7009A0A1A /* RunMapGB.app */;
@@ -129,7 +123,8 @@
 			);
 			mainGroup = F775F9E028193AA7009A0A1A;
 			packageReferences = (
-				F775FA0028193B4B009A0A1A /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */,
+				F775FA0B28193EEA009A0A1A /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */,
+				F775FA0E2819423C009A0A1A /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = F775F9EA28193AA7009A0A1A /* Products */;
 			projectDirPath = "";
@@ -382,41 +377,39 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F775FA0028193B4B009A0A1A /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */ = {
+		F775FA0B28193EEA009A0A1A /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/YAtechnologies/GoogleMaps-SP";
 			requirement = {
-				branch = main;
+				kind = upToNextMinorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+		F775FA0E2819423C009A0A1A /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
 				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F775FA0128193B4B009A0A1A /* GoogleMaps */ = {
+		F775FA0C28193EEA009A0A1A /* GoogleMaps */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F775FA0028193B4B009A0A1A /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */;
+			package = F775FA0B28193EEA009A0A1A /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */;
 			productName = GoogleMaps;
 		};
-		F775FA0328193B4B009A0A1A /* GoogleMapsBase */ = {
+		F775FA0F2819423C009A0A1A /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F775FA0028193B4B009A0A1A /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */;
-			productName = GoogleMapsBase;
+			package = F775FA0E2819423C009A0A1A /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
 		};
-		F775FA0528193B4B009A0A1A /* GoogleMapsCore */ = {
+		F775FA112819423C009A0A1A /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F775FA0028193B4B009A0A1A /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */;
-			productName = GoogleMapsCore;
-		};
-		F775FA0728193B4C009A0A1A /* GoogleMapsM4B */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F775FA0028193B4B009A0A1A /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */;
-			productName = GoogleMapsM4B;
-		};
-		F775FA0928193B4C009A0A1A /* GooglePlaces */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F775FA0028193B4B009A0A1A /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */;
-			productName = GooglePlaces;
+			package = F775FA0E2819423C009A0A1A /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
