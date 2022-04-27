@@ -7,10 +7,16 @@
 
 import UIKit
 import GoogleMaps
-class MapController: UIViewController {
+import RealmSwift
+
+
+@IBDesignable class MapController: UIViewController {
 
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var startRoute: UIButton!
+    @IBOutlet weak var cleanRoute: UIButton!
+    @IBOutlet weak var trackingStop: UIButton!
+    
     
     let coordinate = CLLocationCoordinate2D(latitude: 37.34033264974476, longitude: -122.06892632102273)
     var marker: GMSMarker?
@@ -19,36 +25,68 @@ class MapController: UIViewController {
     var locationManager: CLLocationManager?
     var routePath: GMSMutablePath?
     var countTap: Int = 1
-    
+    var realm = try! Realm()
+    var realmRoutePoint: Results<ModelRealm>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        trackingStop.setTitle("Stop Tracking", for: .normal)
+        trackingStop.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        startRoute.setImage(UIImage(systemName: "play"), for: .normal)
+        cleanRoute.setImage(UIImage(systemName: "restart.circle"), for: .normal)
+        cleanRoute.setTitle("Reset", for: .normal)
         startRoute.addTarget(self, action: #selector( multipleTap(sender:)), for: .touchUpInside)
         configureMap()
         configureLocationManager()
     }
-    
+
     @objc func multipleTap(sender: UIButton) {
         countTap += 1
+        
         if countTap % 2 == 0 {
+            startRoute.setImage(UIImage(systemName: "stop.circle"), for: .normal)
+            realmRoutePoint = realm.objects(ModelRealm.self)
+            guard realmRoutePoint != nil else {
+                let alert = UIAlertController(title: "ВНИМАНИЕ!", message: "В базе нет никакого сохраненного маршрута", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                return  self.present(alert, animated: true, completion: nil)
+            }
             locationManager?.requestLocation()
-            startRoute.setTitle("Закончить маршрут", for: .normal)
             route?.map = nil
             route = GMSPolyline()
+            routePath = GMSMutablePath()
             route?.strokeWidth = 8
             route?.strokeColor = .green
-            routePath = GMSMutablePath()
+            /*realmRoutePoint.compactMap { [weak self] value in
+                guard let self = self else {return}
+                self.routePath?.add(CLLocationCoordinate2D(latitude: value.latitude, longitude: value.longitude))
+            }*/
+            for point in realmRoutePoint {
+                routePath!.add(CLLocationCoordinate2D(latitude: point.latitude, longitude: point.longitude))
+            }
             route?.map = mapView
-            
             locationManager?.startUpdatingLocation()
-        } else  {
-            startRoute.setTitle("Начать маршрут", for: .normal)
+        } else {
+            startRoute.setImage(UIImage(systemName: "play"), for: .normal)
+           // startRoute.setTitle("play", for: .normal)
+            guard let routePoints = routePath else { return }
+             try! realm.write{
+                realm.deleteAll()
+            }
+            for element in 0 ... (routePoints.count() - 1) {
+                let routePoint = ModelRealm()
+                routePoint.latitude = routePoints.coordinate(at: element).latitude
+                routePoint.longitude = routePoints.coordinate(at: element).longitude
+                try! realm.write {
+                    realm.add(routePoint)
+                }
+            }
+            print(realm.configuration.fileURL as Any)
             route?.map = nil
             route = nil
         }
-                
-        
     }
+    
     private func configureLocationManager() {
         locationManager = CLLocationManager()
         locationManager?.delegate = self
@@ -75,6 +113,7 @@ class MapController: UIViewController {
         
         marker?.map = mapView
     }
+
     
     private func removeMarker() {
         marker?.map = nil
@@ -82,6 +121,17 @@ class MapController: UIViewController {
     }
     
     
+    @IBAction func eraseRoute(_ sender: Any) {
+        
+        
+       // guard let routePoints = routePath else { return }
+         try! realm.write {
+              realm.deleteAll()
+          }
+        route?.map = nil
+        route = nil
+        
+    }
     @IBAction func AddMarker(_ sender: Any) {
         if marker == nil {
             mapView.animate(toLocation: coordinate)
@@ -90,7 +140,13 @@ class MapController: UIViewController {
             removeMarker()
         }
     }
+    
+    @IBAction func StopTracking(_ sender: Any) {
+        locationManager?.stopUpdatingLocation()
+        route?.map = nil
+        route = nil
     }
+}
     
 
 
@@ -119,8 +175,8 @@ extension MapController: CLLocationManagerDelegate {
         route?.path = routePath
         
         let position = GMSCameraPosition.camera(withTarget: location.coordinate , zoom: 15)
-        mapView.animate(to: position)
         
+        mapView.animate(to: position)
         print(location.coordinate)
     }
     

@@ -16,6 +16,7 @@
 		F775FA0D28193EEA009A0A1A /* GoogleMaps in Frameworks */ = {isa = PBXBuildFile; productRef = F775FA0C28193EEA009A0A1A /* GoogleMaps */; };
 		F775FA102819423C009A0A1A /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F775FA0F2819423C009A0A1A /* Realm */; };
 		F775FA122819423C009A0A1A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F775FA112819423C009A0A1A /* RealmSwift */; };
+		F775FA14281945E4009A0A1A /* ModelRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775FA13281945E4009A0A1A /* ModelRealm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		F775F9F528193AA8009A0A1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F775F9F828193AA8009A0A1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F775F9FA28193AA8009A0A1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F775FA13281945E4009A0A1A /* ModelRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelRealm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			children = (
 				F775F9EC28193AA7009A0A1A /* AppDelegate.swift */,
 				F775F9EE28193AA7009A0A1A /* SceneDelegate.swift */,
+				F775FA13281945E4009A0A1A /* ModelRealm.swift */,
 				F775F9F028193AA7009A0A1A /* MapController.swift */,
 				F775F9F228193AA7009A0A1A /* Main.storyboard */,
 				F775F9F528193AA8009A0A1A /* Assets.xcassets */,
@@ -154,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F775F9F128193AA7009A0A1A /* MapController.swift in Sources */,
+				F775FA14281945E4009A0A1A /* ModelRealm.swift in Sources */,
 				F775F9ED28193AA7009A0A1A /* AppDelegate.swift in Sources */,
 				F775F9EF28193AA7009A0A1A /* SceneDelegate.swift in Sources */,
 			);
