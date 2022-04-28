@@ -16,58 +16,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WmZ-FI-zoU" customClass="GMSMapView">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WmZ-FI-zoU" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zEi-XF-bls">
-                                <rect key="frame" x="231.5" y="670" width="142.5" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Стереть маршрут"/>
-                                <connections>
-                                    <action selector="eraseRoute:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sSl-9n-bCG"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jBs-mE-d0g">
-                                <rect key="frame" x="40" y="791" width="24" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NHt-6C-J5e">
-                                <rect key="frame" x="40" y="687" width="24" height="14"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled"/>
-                                <connections>
-                                    <action selector="StopTracking:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jSg-eL-Dgk"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0F-d3-HZD">
-                                <rect key="frame" x="275" y="791" width="99" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Add Marker"/>
-                                <connections>
-                                    <action selector="AddMarker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nbe-6W-5iF"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="pqe-PV-7R6">
+                                <rect key="frame" x="40" y="741" width="142.5" height="76"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zEi-XF-bls">
+                                        <rect key="frame" x="0.0" y="0.0" width="142.5" height="38"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Стереть маршрут"/>
+                                        <connections>
+                                            <action selector="eraseRoute:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sSl-9n-bCG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jBs-mE-d0g">
+                                        <rect key="frame" x="0.0" y="62" width="142.5" height="14"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="jBs-mE-d0g" firstAttribute="leading" secondItem="zEi-XF-bls" secondAttribute="leading" id="KKc-rq-K7n"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="XZk-bn-98U">
+                                <rect key="frame" x="275" y="741" width="99" height="76"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0F-d3-HZD">
+                                        <rect key="frame" x="0.0" y="0.0" width="99" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Add Marker"/>
+                                        <connections>
+                                            <action selector="AddMarker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nbe-6W-5iF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NHt-6C-J5e">
+                                        <rect key="frame" x="0.0" y="62" width="99" height="14"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled"/>
+                                        <connections>
+                                            <action selector="StopTracking:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jSg-eL-Dgk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="NHt-6C-J5e" firstAttribute="leading" secondItem="u0F-d3-HZD" secondAttribute="leading" id="vLy-fT-J3B"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="u0F-d3-HZD" secondAttribute="bottom" constant="40" id="2fd-TT-ntJ"/>
-                            <constraint firstItem="jBs-mE-d0g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="8pB-aN-ThI"/>
-                            <constraint firstItem="jBs-mE-d0g" firstAttribute="top" secondItem="NHt-6C-J5e" secondAttribute="bottom" constant="90" id="AWW-M2-y37"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zEi-XF-bls" secondAttribute="trailing" constant="40" id="F1B-Fv-tNm"/>
-                            <constraint firstItem="jBs-mE-d0g" firstAttribute="centerY" secondItem="u0F-d3-HZD" secondAttribute="centerY" id="Id7-N6-c3D"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WmZ-FI-zoU" secondAttribute="bottom" id="ImW-py-U8V"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jBs-mE-d0g" secondAttribute="bottom" constant="40" id="Xz3-pZ-vlE"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="u0F-d3-HZD" secondAttribute="trailing" constant="40" id="Xzp-ai-cwx"/>
-                            <constraint firstItem="WmZ-FI-zoU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bB6-4j-rEm"/>
-                            <constraint firstItem="jBs-mE-d0g" firstAttribute="top" secondItem="zEi-XF-bls" secondAttribute="bottom" constant="90" id="eHq-t6-eQK"/>
-                            <constraint firstItem="jBs-mE-d0g" firstAttribute="height" secondItem="u0F-d3-HZD" secondAttribute="height" id="hwP-Qs-03z"/>
-                            <constraint firstItem="WmZ-FI-zoU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="rhX-HV-szX"/>
-                            <constraint firstItem="NHt-6C-J5e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="sEw-5L-ohY"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WmZ-FI-zoU" secondAttribute="trailing" id="szs-bv-oim"/>
-                            <constraint firstItem="u0F-d3-HZD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jBs-mE-d0g" secondAttribute="trailing" constant="53.5" id="u9v-n0-5Sm"/>
+                            <constraint firstItem="pqe-PV-7R6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="0CK-bb-prA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XZk-bn-98U" secondAttribute="trailing" constant="40" id="GGm-Xp-b3K"/>
+                            <constraint firstItem="pqe-PV-7R6" firstAttribute="centerY" secondItem="XZk-bn-98U" secondAttribute="centerY" id="QAR-K5-81g"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pqe-PV-7R6" secondAttribute="bottom" constant="45" id="W4R-cN-61q"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="XZk-bn-98U" secondAttribute="bottom" constant="45" id="mcO-Y7-6ny"/>
                         </constraints>
                     </view>
                     <connections>
