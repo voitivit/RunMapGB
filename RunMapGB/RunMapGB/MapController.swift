@@ -16,6 +16,7 @@ import RealmSwift
     @IBOutlet weak var startRoute: UIButton!
     @IBOutlet weak var cleanRoute: UIButton!
     @IBOutlet weak var trackingStop: UIButton!
+    @IBOutlet weak var lastRouteOutlet: UIButton!
     
     
     let coordinate = CLLocationCoordinate2D(latitude: 37.34033264974476, longitude: -122.06892632102273)
@@ -27,20 +28,26 @@ import RealmSwift
     var countTap: Int = 1
     var realm = try! Realm()
     var realmRoutePoint: Results<ModelRealm>!
+    var flag: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureButton()
+        configureMap()
+        configureLocationManager()
+    }
+    
+    
+    func configureButton() {
         trackingStop.setTitle("Stop Tracking", for: .normal)
         trackingStop.setImage(UIImage(systemName: "eye.slash"), for: .normal)
         startRoute.setImage(UIImage(systemName: "play"), for: .normal)
         cleanRoute.setImage(UIImage(systemName: "restart.circle"), for: .normal)
         cleanRoute.setTitle("Reset", for: .normal)
         startRoute.addTarget(self, action: #selector( multipleTap(sender:)), for: .touchUpInside)
-        configureMap()
-        configureLocationManager()
     }
 
-    @objc func multipleTap(sender: UIButton) {
+    func showRoute() {
         countTap += 1
         
         if countTap % 2 == 0 {
@@ -51,12 +58,15 @@ import RealmSwift
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 return  self.present(alert, animated: true, completion: nil)
             }
+            flag = true
             locationManager?.requestLocation()
             route?.map = nil
             route = GMSPolyline()
             routePath = GMSMutablePath()
             route?.strokeWidth = 8
             route?.strokeColor = .green
+            route?.geodesic = true
+         
             /*realmRoutePoint.compactMap { [weak self] value in
                 guard let self = self else {return}
                 self.routePath?.add(CLLocationCoordinate2D(latitude: value.latitude, longitude: value.longitude))
@@ -67,10 +77,11 @@ import RealmSwift
             route?.map = mapView
             locationManager?.startUpdatingLocation()
         } else {
+            flag = true
             startRoute.setImage(UIImage(systemName: "play"), for: .normal)
            // startRoute.setTitle("play", for: .normal)
             guard let routePoints = routePath else { return }
-             try! realm.write{
+             try! realm.write {
                 realm.deleteAll()
             }
             for element in 0 ... (routePoints.count() - 1) {
@@ -85,6 +96,10 @@ import RealmSwift
             route?.map = nil
             route = nil
         }
+    }
+    
+    @objc func multipleTap(sender: UIButton) {
+        showRoute()
     }
     
     private func configureLocationManager() {
@@ -123,7 +138,7 @@ import RealmSwift
     
     @IBAction func eraseRoute(_ sender: Any) {
         
-        
+        flag = false
        // guard let routePoints = routePath else { return }
          try! realm.write {
               realm.deleteAll()
@@ -143,10 +158,41 @@ import RealmSwift
     
     @IBAction func StopTracking(_ sender: Any) {
         locationManager?.stopUpdatingLocation()
+        
         route?.map = nil
         route = nil
     }
-}
+    
+    
+    @IBAction func lastRoute(_ sender: Any) {
+        if flag == true {
+            let alert = UIAlertController(title: "Внимание", message: "В данный момент идет запись маршрута, если вы нажмете ОК, все данные этого маршрута будут потеряны! ", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                self.locationManager?.stopUpdatingLocation()
+                self.route?.map = nil
+                self.route = nil
+                self.flag = false
+                self.showRoute()
+            }))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            self.showRoute()
+        }
+ 
+        
+        /*self.realmRoutePoint?.map { value in
+            lastRoutes.add(CLLocationCoordinate2D(latitude: value.latitude, longitude: value.longitude))
+          
+        }*/
+        
+        
+            
+        }
+        
+        
+    }
+    
+
     
 
 

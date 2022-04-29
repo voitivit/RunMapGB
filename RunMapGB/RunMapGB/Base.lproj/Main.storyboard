@@ -21,6 +21,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3qk-ty-t6L">
+                                <rect key="frame" x="40" y="690" width="93" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Last Route"/>
+                                <connections>
+                                    <action selector="lastRoute:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cel-bt-edz"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="pqe-PV-7R6">
                                 <rect key="frame" x="40" y="741" width="142.5" height="76"/>
                                 <subviews>
@@ -71,7 +79,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="pqe-PV-7R6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="0CK-bb-prA"/>
+                            <constraint firstItem="3qk-ty-t6L" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="AvQ-n1-ho9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XZk-bn-98U" secondAttribute="trailing" constant="40" id="GGm-Xp-b3K"/>
+                            <constraint firstItem="pqe-PV-7R6" firstAttribute="top" secondItem="3qk-ty-t6L" secondAttribute="bottom" constant="20" id="NVe-cp-Bia"/>
                             <constraint firstItem="pqe-PV-7R6" firstAttribute="centerY" secondItem="XZk-bn-98U" secondAttribute="centerY" id="QAR-K5-81g"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pqe-PV-7R6" secondAttribute="bottom" constant="45" id="W4R-cN-61q"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="XZk-bn-98U" secondAttribute="bottom" constant="45" id="mcO-Y7-6ny"/>
@@ -79,6 +89,7 @@
                     </view>
                     <connections>
                         <outlet property="cleanRoute" destination="zEi-XF-bls" id="dLz-qN-Edw"/>
+                        <outlet property="lastRouteOutlet" destination="3qk-ty-t6L" id="8N6-FS-cHY"/>
                         <outlet property="mapView" destination="WmZ-FI-zoU" id="fGq-QX-4ZK"/>
                         <outlet property="startRoute" destination="jBs-mE-d0g" id="O5g-Il-jvh"/>
                         <outlet property="trackingStop" destination="NHt-6C-J5e" id="GuD-RL-Khf"/>
