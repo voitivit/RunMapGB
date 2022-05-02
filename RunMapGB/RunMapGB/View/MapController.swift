@@ -26,7 +26,7 @@ import RealmSwift
     var locationManager: CLLocationManager?
     var routePath: GMSMutablePath?
     var countTap: Int = 1
-    var realm = try! Realm()
+    let realm = try! Realm()
     var realmRoutePoint: Results<ModelRealm>!
     var flag: Bool = false
     
