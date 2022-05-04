@@ -62,8 +62,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="0qe-62-Uk2"/>
                     <connections>
+                        <outlet property="logInOutlet" destination="Lw6-pm-KVv" id="ES8-AS-bIg"/>
                         <outlet property="loginView" destination="T2d-7J-VFp" id="73J-dN-Fbu"/>
                         <outlet property="passwordView" destination="CLt-L5-Mlc" id="0g6-88-8JR"/>
+                        <outlet property="registrationOutlet" destination="bQv-Sl-AKj" id="voi-Dl-IMt"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="show" id="NXR-Hc-7sr"/>
                     </connections>
                 </viewController>
