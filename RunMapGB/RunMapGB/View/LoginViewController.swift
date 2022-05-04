@@ -43,7 +43,6 @@ class LoginViewController: UIViewController {
     func addObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(blurViewLoading), name: UIApplication.willResignActiveNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(normalViewLoading), name: UIApplication.didBecomeActiveNotification, object: nil)
-        
     }
     
    @objc private func blurViewLoading() {
@@ -55,12 +54,10 @@ class LoginViewController: UIViewController {
        self.view.addSubview(blurEffectView)
        
     }
-    
     @objc private func normalViewLoading() {
         self.view.viewWithTag(1)?.removeFromSuperview()
     }
 
-    
     func settingsTextFields() {
         loginView.autocorrectionType = .no
         loginView.autocapitalizationType = .none
