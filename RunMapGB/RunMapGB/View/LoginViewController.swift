@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 import RealmSwift
 class LoginViewController: UIViewController {
     
@@ -19,6 +20,7 @@ class LoginViewController: UIViewController {
     var router: LaunchRouter?
     let realm = try! Realm()
     override func viewWillAppear(_ animated: Bool) {
+        
         router = LaunchRouter(viewController: self)
         registrationRealm = realm.objects(Users.self)
        // realm.configuration.deleteRealmIfMigrationNeeded == true
@@ -29,9 +31,20 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        settingsTextFields()
      // registrationRealm = realm.objects(UserLogin.self)
     }
-
+    
+    func settingsTextFields() {
+        loginView.autocorrectionType = .no
+        loginView.autocapitalizationType = .none
+        loginView.backgroundColor = .green
+        passwordView.autocorrectionType = .no
+        passwordView.autocapitalizationType = .none
+        passwordView.backgroundColor = .green
+        passwordView.isSecureTextEntry = true
+        
+            }
     private func logInButtonTapped() {
         guard
             let login = loginView.text,
