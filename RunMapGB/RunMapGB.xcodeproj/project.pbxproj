@@ -21,6 +21,9 @@
 		F775FA1C281AA351009A0A1A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F775FA1B281AA351009A0A1A /* RealmSwift */; };
 		F79B59C4281FF5BE0015DF30 /* ModelRealmUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79B59C3281FF5BE0015DF30 /* ModelRealmUser.swift */; };
 		F79B59C6281FF5D50015DF30 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79B59C5281FF5D50015DF30 /* LoginViewController.swift */; };
+		F7F03AF8283657AA00C9404A /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F7F03AF7283657AA00C9404A /* RxCocoa */; };
+		F7F03AFA283657AA00C9404A /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = F7F03AF9283657AA00C9404A /* RxRelay */; };
+		F7F03AFC283657AA00C9404A /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F7F03AFB283657AA00C9404A /* RxSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +47,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7F03AFC283657AA00C9404A /* RxSwift in Frameworks */,
+				F7F03AFA283657AA00C9404A /* RxRelay in Frameworks */,
 				F775FA1C281AA351009A0A1A /* RealmSwift in Frameworks */,
 				F775FA1A281AA351009A0A1A /* Realm in Frameworks */,
+				F7F03AF8283657AA00C9404A /* RxCocoa in Frameworks */,
 				F775FA17281AA2CC009A0A1A /* GoogleMaps in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,6 +138,9 @@
 				F775FA16281AA2CC009A0A1A /* GoogleMaps */,
 				F775FA19281AA351009A0A1A /* Realm */,
 				F775FA1B281AA351009A0A1A /* RealmSwift */,
+				F7F03AF7283657AA00C9404A /* RxCocoa */,
+				F7F03AF9283657AA00C9404A /* RxRelay */,
+				F7F03AFB283657AA00C9404A /* RxSwift */,
 			);
 			productName = RunMapGB;
 			productReference = F775F9E928193AA7009A0A1A /* RunMapGB.app */;
@@ -164,6 +173,7 @@
 			packageReferences = (
 				F775FA15281AA2CC009A0A1A /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */,
 				F775FA18281AA351009A0A1A /* XCRemoteSwiftPackageReference "realm-swift" */,
+				F7F03AF6283657AA00C9404A /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = F775F9EA28193AA7009A0A1A /* Products */;
 			projectDirPath = "";
@@ -437,6 +447,14 @@
 				kind = branch;
 			};
 		};
+		F7F03AF6283657AA00C9404A /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -454,6 +472,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F775FA18281AA351009A0A1A /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		F7F03AF7283657AA00C9404A /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F7F03AF6283657AA00C9404A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		F7F03AF9283657AA00C9404A /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F7F03AF6283657AA00C9404A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		F7F03AFB283657AA00C9404A /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F7F03AF6283657AA00C9404A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

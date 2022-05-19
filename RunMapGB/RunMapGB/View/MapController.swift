@@ -8,6 +8,7 @@
 import UIKit
 import GoogleMaps
 import RealmSwift
+import RxSwift
 
 
 @IBDesignable class MapController: UIViewController {
