@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F7480FBD28365C2100A63791 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7480FBC28365C2100A63791 /* LocationManager.swift */; };
+		F7480FBF283663AE00A63791 /* MapExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7480FBE283663AE00A63791 /* MapExample.swift */; };
 		F775130728205CDE00FEB958 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775130628205CDE00FEB958 /* Router.swift */; };
 		F775130928205CEC00FEB958 /* LaunchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775130828205CEC00FEB958 /* LaunchRouter.swift */; };
 		F775F9ED28193AA7009A0A1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775F9EC28193AA7009A0A1A /* AppDelegate.swift */; };
@@ -27,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F7480FBC28365C2100A63791 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		F7480FBE283663AE00A63791 /* MapExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapExample.swift; sourceTree = "<group>"; };
 		F775130628205CDE00FEB958 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		F775130828205CEC00FEB958 /* LaunchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchRouter.swift; sourceTree = "<group>"; };
 		F775F9E928193AA7009A0A1A /* RunMapGB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunMapGB.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +63,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F7480FBB28365C0300A63791 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F7480FBC28365C2100A63791 /* LocationManager.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		F775130A28205D7800FEB958 /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +101,7 @@
 			children = (
 				F775F9EC28193AA7009A0A1A /* AppDelegate.swift */,
 				F775F9EE28193AA7009A0A1A /* SceneDelegate.swift */,
+				F7480FBB28365C0300A63791 /* Controllers */,
 				F775130A28205D7800FEB958 /* Router */,
 				F79B59C2281FF5960015DF30 /* Model */,
 				F79B59C7281FF5DC0015DF30 /* View */,
@@ -114,6 +127,7 @@
 			children = (
 				F775F9F028193AA7009A0A1A /* MapController.swift */,
 				F79B59C5281FF5D50015DF30 /* LoginViewController.swift */,
+				F7480FBE283663AE00A63791 /* MapExample.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -207,9 +221,11 @@
 				F79B59C6281FF5D50015DF30 /* LoginViewController.swift in Sources */,
 				F79B59C4281FF5BE0015DF30 /* ModelRealmUser.swift in Sources */,
 				F775F9F128193AA7009A0A1A /* MapController.swift in Sources */,
+				F7480FBF283663AE00A63791 /* MapExample.swift in Sources */,
 				F775FA14281945E4009A0A1A /* ModelRealmMap.swift in Sources */,
 				F775F9ED28193AA7009A0A1A /* AppDelegate.swift in Sources */,
 				F775F9EF28193AA7009A0A1A /* SceneDelegate.swift in Sources */,
+				F7480FBD28365C2100A63791 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
