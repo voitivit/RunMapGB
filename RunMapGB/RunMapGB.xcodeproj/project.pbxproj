@@ -63,12 +63,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F7480FBB28365C0300A63791 /* Controllers */ = {
+		F7480FBB28365C0300A63791 /* Location */ = {
 			isa = PBXGroup;
 			children = (
 				F7480FBC28365C2100A63791 /* LocationManager.swift */,
 			);
-			path = Controllers;
+			path = Location;
+			sourceTree = "<group>";
+		};
+		F7480FC02837785B00A63791 /* OldFiles */ = {
+			isa = PBXGroup;
+			children = (
+				F7480FBE283663AE00A63791 /* MapExample.swift */,
+			);
+			path = OldFiles;
 			sourceTree = "<group>";
 		};
 		F775130A28205D7800FEB958 /* Router */ = {
@@ -101,7 +109,7 @@
 			children = (
 				F775F9EC28193AA7009A0A1A /* AppDelegate.swift */,
 				F775F9EE28193AA7009A0A1A /* SceneDelegate.swift */,
-				F7480FBB28365C0300A63791 /* Controllers */,
+				F7480FBB28365C0300A63791 /* Location */,
 				F775130A28205D7800FEB958 /* Router */,
 				F79B59C2281FF5960015DF30 /* Model */,
 				F79B59C7281FF5DC0015DF30 /* View */,
@@ -109,6 +117,7 @@
 				F775F9F528193AA8009A0A1A /* Assets.xcassets */,
 				F775F9F728193AA8009A0A1A /* LaunchScreen.storyboard */,
 				F775F9FA28193AA8009A0A1A /* Info.plist */,
+				F7480FC02837785B00A63791 /* OldFiles */,
 			);
 			path = RunMapGB;
 			sourceTree = "<group>";
@@ -127,7 +136,6 @@
 			children = (
 				F775F9F028193AA7009A0A1A /* MapController.swift */,
 				F79B59C5281FF5D50015DF30 /* LoginViewController.swift */,
-				F7480FBE283663AE00A63791 /* MapExample.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

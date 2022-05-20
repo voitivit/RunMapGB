@@ -8,10 +8,11 @@
 import UIKit
 import Foundation
 import RealmSwift
-class LoginViewController: UIViewController {
-    
+import RxSwift
+import RxCocoa
 
-    
+class LoginViewController: UIViewController {
+
     @IBOutlet weak var loginView: UITextField!
     @IBOutlet weak var passwordView: UITextField!
     @IBOutlet weak var logInOutlet: UIButton!
@@ -37,9 +38,26 @@ class LoginViewController: UIViewController {
        // blurColor()
         settingsTextFields()
         addObserver()
+        configureLoginBindings()
      // registrationRealm = realm.objects(UserLogin.self)
     }
 
+    func configureLoginBindings() {
+        Observable
+            .combineLatest(
+                loginView.rx.text,
+                passwordView.rx.text
+            )
+            .map { login, password in
+                guard let login = self.loginView.text, let password = self.passwordView.text else  { return false }
+                return !login.isEmpty && password.count >= 1
+            }
+            .bind { [weak logInOutlet] inputFilled  in
+                logInOutlet?.isEnabled = inputFilled
+                
+            }
+    }
+    
     func addObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(blurViewLoading), name: UIApplication.willResignActiveNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(normalViewLoading), name: UIApplication.didBecomeActiveNotification, object: nil)

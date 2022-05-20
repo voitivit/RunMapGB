@@ -198,16 +198,7 @@ import RxSwift
             self.showRoute()
         }
  
-        
-        /*self.realmRoutePoint?.map { value in
-            lastRoutes.add(CLLocationCoordinate2D(latitude: value.latitude, longitude: value.longitude))
-          
-        }*/
-        
-        
-            
         }
-        
         
     }
     
@@ -231,6 +222,8 @@ extension MapController: GMSMapViewDelegate {
         })
     }
 }
+
+
 /*
 extension MapController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
