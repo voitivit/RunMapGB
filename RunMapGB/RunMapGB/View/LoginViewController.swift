@@ -21,7 +21,7 @@ class LoginViewController: UIViewController {
     var user = Users()
     var router: LaunchRouter?
     let realm = try! Realm()
-    
+    let disposeBag = DisposeBag()
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,6 +56,7 @@ class LoginViewController: UIViewController {
                 logInOutlet?.isEnabled = inputFilled
                 
             }
+            .disposed(by: disposeBag)
     }
     
     func addObserver() {
