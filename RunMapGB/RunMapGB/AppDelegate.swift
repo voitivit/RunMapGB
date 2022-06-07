@@ -8,15 +8,16 @@
 import UIKit
 import GoogleMaps
 import UserNotifications
-
+import RealmSwift
+import SwiftUI
+import Foundation
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         GMSServices.provideAPIKey("AIzaSyDZwCvimIW30M_Qyj3Zr9NSpBxeNoLshtQ")
-        requestCenter()
-      
+      //  requestCenter()
         return true
     }
 

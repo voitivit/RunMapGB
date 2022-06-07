@@ -86,6 +86,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDt-HV-q1j">
+                                <rect key="frame" x="50" y="556" width="65" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="ФОТО"/>
+                                <connections>
+                                    <action selector="makePhotoButtonDidTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e0L-Q1-rnF"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3qk-ty-t6L">
                                 <rect key="frame" x="40" y="636" width="93" height="31"/>
                                 <state key="normal" title="Button"/>
@@ -145,9 +153,11 @@
                         <constraints>
                             <constraint firstItem="pqe-PV-7R6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="0CK-bb-prA"/>
                             <constraint firstItem="3qk-ty-t6L" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="AvQ-n1-ho9"/>
+                            <constraint firstItem="pqe-PV-7R6" firstAttribute="top" secondItem="wDt-HV-q1j" secondAttribute="bottom" constant="100" id="DPd-yb-MuL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XZk-bn-98U" secondAttribute="trailing" constant="40" id="GGm-Xp-b3K"/>
                             <constraint firstItem="pqe-PV-7R6" firstAttribute="top" secondItem="3qk-ty-t6L" secondAttribute="bottom" constant="20" id="NVe-cp-Bia"/>
                             <constraint firstItem="pqe-PV-7R6" firstAttribute="centerY" secondItem="XZk-bn-98U" secondAttribute="centerY" id="QAR-K5-81g"/>
+                            <constraint firstItem="wDt-HV-q1j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="QdG-zs-BzQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pqe-PV-7R6" secondAttribute="bottom" constant="45" id="W4R-cN-61q"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="XZk-bn-98U" secondAttribute="bottom" constant="45" id="mcO-Y7-6ny"/>
                         </constraints>
@@ -158,11 +168,41 @@
                         <outlet property="mapView" destination="WmZ-FI-zoU" id="fGq-QX-4ZK"/>
                         <outlet property="startRoute" destination="jBs-mE-d0g" id="O5g-Il-jvh"/>
                         <outlet property="trackingStop" destination="NHt-6C-J5e" id="GuD-RL-Khf"/>
+                        <segue destination="Uc5-1q-ufb" kind="presentation" identifier="toSelfieViewController" id="uJm-F3-RYy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2171.0144927536235" y="-404.46428571428572"/>
+        </scene>
+        <!--Selfie View Controller-->
+        <scene sceneID="bMY-5O-las">
+            <objects>
+                <viewController id="Uc5-1q-ufb" customClass="SelfieViewController" customModule="RunMapGB" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="w4U-Fg-SjE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vic-QC-t9T">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="afx-bg-2qh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Vic-QC-t9T" firstAttribute="top" secondItem="afx-bg-2qh" secondAttribute="top" id="4EZ-3M-zAj"/>
+                            <constraint firstItem="afx-bg-2qh" firstAttribute="bottom" secondItem="Vic-QC-t9T" secondAttribute="bottom" id="Idq-H4-yVt"/>
+                            <constraint firstItem="Vic-QC-t9T" firstAttribute="leading" secondItem="afx-bg-2qh" secondAttribute="leading" id="KSb-hb-fiX"/>
+                            <constraint firstItem="afx-bg-2qh" firstAttribute="trailing" secondItem="Vic-QC-t9T" secondAttribute="trailing" id="f0R-9H-wWD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="Vic-QC-t9T" id="Tl0-yP-Af2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RPa-DP-dcM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3026" y="-404"/>
         </scene>
     </scenes>
     <resources>

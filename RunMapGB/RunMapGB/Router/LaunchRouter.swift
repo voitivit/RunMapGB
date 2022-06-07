@@ -16,4 +16,8 @@ class LaunchRouter: Router {
     func toMapViewController() {
         perform(segue: "show")
     }
+    
+    func toSelfieViewController() {
+        perform(segue: "toSelfieViewController")
+    }
 }
