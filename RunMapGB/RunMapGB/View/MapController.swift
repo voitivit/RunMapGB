@@ -8,9 +8,16 @@
 import UIKit
 import GoogleMaps
 import RealmSwift
+import CoreLocation
+import Realm
 import RxSwift
+import RxCocoa
+import AVFoundation
 
-
+enum MarkerSelected {
+    case autoMarker
+    case manualMarker
+}
 @IBDesignable class MapController: UIViewController {
 
     @IBOutlet weak var mapView: GMSMapView!
@@ -23,16 +30,21 @@ import RxSwift
     
     let coordinate = CLLocationCoordinate2D(latitude: 37.34033264974476, longitude: -122.06892632102273)
     var marker: GMSMarker?
+    var manualMarker: GMSMarker?
     var geoCoder: CLGeocoder?
     var route: GMSPolyline?
    // var locationManager: CLLocationManager?
     var routePath: GMSMutablePath?
+    var locationsArray = [CLLocationCoordinate2D]()
     var countTap: Int = 1
     let realm = try! Realm()
     var realmRoutePoint: Results<ModelRealm>!
     var flag: Bool = false
     let locationManager = LocationManager()
     let disposeBag = DisposeBag()
+    var onTakePicture: ((UIImage) -> Void)?
+    var realmPhotoMarker: Results<PhotoMarker>!
+    var photoMarker = PhotoMarker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +53,26 @@ import RxSwift
         configureLocationManager()
     }
     
-    
+    func addMarker(_ markerType: MarkerSelected, _ coordinate: CLLocationCoordinate2D) {
+        
+        switch markerType {
+        case .autoMarker:
+            marker = GMSMarker(position: coordinate)
+            marker?.icon = GMSMarker.markerImage(with: .systemPink)
+            marker?.title = "Auto Position"
+            marker?.snippet = "Actual selected auto marker"
+            marker?.map = mapView
+            locationsArray.append(coordinate)
+            //makeMapPath(locationsArray)
+            
+        case .manualMarker:
+            manualMarker = GMSMarker(position: coordinate)
+            manualMarker?.icon = GMSMarker.markerImage(with: .green)
+            manualMarker?.title = "Manual Position"
+            manualMarker?.snippet = "Actual selected manual marker"
+            manualMarker?.map = mapView
+        }
+    }
     func configureButton() {
         trackingStop.setTitle("Stop Tracking", for: .normal)
         trackingStop.setImage(UIImage(systemName: "eye.slash"), for: .normal)
@@ -200,7 +231,18 @@ import RxSwift
  
         }
         
+    @IBAction func makePhotoButtonDidTapped(_ sender: Any) {
+       // onTakePicture()
+        guard UIImagePickerController.isSourceTypeAvailable(.camera) else { return }
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = .camera
+        imagePickerController.allowsEditing = true
+        imagePickerController.delegate = self
+        
+        present(imagePickerController, animated: true)
+        
     }
+}
     
 
     
@@ -208,7 +250,8 @@ import RxSwift
 
 extension MapController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
-        print(coordinate)
+        addMarker(.manualMarker, coordinate)
+       /* print(coordinate)
         let manulMarker = GMSMarker(position: coordinate)
         manulMarker.map = mapView
         
@@ -219,10 +262,42 @@ extension MapController: GMSMapViewDelegate {
         geoCoder?.reverseGeocodeLocation(CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude), completionHandler: { places, error in
             print(places?.last as Any)
             print(error as Any)
-        })
+        })*/
     }
 }
 
+extension MapController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
+    }
+    
+    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        picker.dismiss(animated: true) { [weak self] in
+            guard let self = self else { return }
+            guard let image = self.extractImage(from: info) else { return }
+            self.onTakePicture?(image)
+            
+            self.photoMarker.photo = image
+            let photoMarker = self.photoMarker
+            let realm = self.realm
+                    
+            try! realm.write {
+                realm.add(photoMarker)
+            }
+        }
+    }
+    
+    private func extractImage(from info: [String: Any]) -> UIImage? {
+        if let image = info[UIImagePickerController.InfoKey.editedImage.rawValue] as? UIImage {
+            return image
+        } else if let image = info[UIImagePickerController.InfoKey.originalImage.rawValue] as? UIImage {
+            return image
+        } else {
+            return nil
+        }
+    }
+}
 
 /*
 extension MapController: CLLocationManagerDelegate {
