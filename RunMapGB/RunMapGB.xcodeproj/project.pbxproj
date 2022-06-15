@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F7480FBD28365C2100A63791 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7480FBC28365C2100A63791 /* LocationManager.swift */; };
+		F7480FBF283663AE00A63791 /* MapExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7480FBE283663AE00A63791 /* MapExample.swift */; };
 		F775130728205CDE00FEB958 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775130628205CDE00FEB958 /* Router.swift */; };
 		F775130928205CEC00FEB958 /* LaunchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775130828205CEC00FEB958 /* LaunchRouter.swift */; };
 		F775F9ED28193AA7009A0A1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775F9EC28193AA7009A0A1A /* AppDelegate.swift */; };
@@ -21,9 +23,14 @@
 		F775FA1C281AA351009A0A1A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F775FA1B281AA351009A0A1A /* RealmSwift */; };
 		F79B59C4281FF5BE0015DF30 /* ModelRealmUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79B59C3281FF5BE0015DF30 /* ModelRealmUser.swift */; };
 		F79B59C6281FF5D50015DF30 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79B59C5281FF5D50015DF30 /* LoginViewController.swift */; };
+		F7F03AF8283657AA00C9404A /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F7F03AF7283657AA00C9404A /* RxCocoa */; };
+		F7F03AFA283657AA00C9404A /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = F7F03AF9283657AA00C9404A /* RxRelay */; };
+		F7F03AFC283657AA00C9404A /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F7F03AFB283657AA00C9404A /* RxSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F7480FBC28365C2100A63791 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		F7480FBE283663AE00A63791 /* MapExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapExample.swift; sourceTree = "<group>"; };
 		F775130628205CDE00FEB958 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		F775130828205CEC00FEB958 /* LaunchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchRouter.swift; sourceTree = "<group>"; };
 		F775F9E928193AA7009A0A1A /* RunMapGB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunMapGB.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,8 +51,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7F03AFC283657AA00C9404A /* RxSwift in Frameworks */,
+				F7F03AFA283657AA00C9404A /* RxRelay in Frameworks */,
 				F775FA1C281AA351009A0A1A /* RealmSwift in Frameworks */,
 				F775FA1A281AA351009A0A1A /* Realm in Frameworks */,
+				F7F03AF8283657AA00C9404A /* RxCocoa in Frameworks */,
 				F775FA17281AA2CC009A0A1A /* GoogleMaps in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,6 +63,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F7480FBB28365C0300A63791 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				F7480FBC28365C2100A63791 /* LocationManager.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		F7480FC02837785B00A63791 /* OldFiles */ = {
+			isa = PBXGroup;
+			children = (
+				F7480FBE283663AE00A63791 /* MapExample.swift */,
+			);
+			path = OldFiles;
+			sourceTree = "<group>";
+		};
 		F775130A28205D7800FEB958 /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +109,7 @@
 			children = (
 				F775F9EC28193AA7009A0A1A /* AppDelegate.swift */,
 				F775F9EE28193AA7009A0A1A /* SceneDelegate.swift */,
+				F7480FBB28365C0300A63791 /* Location */,
 				F775130A28205D7800FEB958 /* Router */,
 				F79B59C2281FF5960015DF30 /* Model */,
 				F79B59C7281FF5DC0015DF30 /* View */,
@@ -90,6 +117,7 @@
 				F775F9F528193AA8009A0A1A /* Assets.xcassets */,
 				F775F9F728193AA8009A0A1A /* LaunchScreen.storyboard */,
 				F775F9FA28193AA8009A0A1A /* Info.plist */,
+				F7480FC02837785B00A63791 /* OldFiles */,
 			);
 			path = RunMapGB;
 			sourceTree = "<group>";
@@ -132,6 +160,9 @@
 				F775FA16281AA2CC009A0A1A /* GoogleMaps */,
 				F775FA19281AA351009A0A1A /* Realm */,
 				F775FA1B281AA351009A0A1A /* RealmSwift */,
+				F7F03AF7283657AA00C9404A /* RxCocoa */,
+				F7F03AF9283657AA00C9404A /* RxRelay */,
+				F7F03AFB283657AA00C9404A /* RxSwift */,
 			);
 			productName = RunMapGB;
 			productReference = F775F9E928193AA7009A0A1A /* RunMapGB.app */;
@@ -164,6 +195,7 @@
 			packageReferences = (
 				F775FA15281AA2CC009A0A1A /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */,
 				F775FA18281AA351009A0A1A /* XCRemoteSwiftPackageReference "realm-swift" */,
+				F7F03AF6283657AA00C9404A /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = F775F9EA28193AA7009A0A1A /* Products */;
 			projectDirPath = "";
@@ -197,9 +229,11 @@
 				F79B59C6281FF5D50015DF30 /* LoginViewController.swift in Sources */,
 				F79B59C4281FF5BE0015DF30 /* ModelRealmUser.swift in Sources */,
 				F775F9F128193AA7009A0A1A /* MapController.swift in Sources */,
+				F7480FBF283663AE00A63791 /* MapExample.swift in Sources */,
 				F775FA14281945E4009A0A1A /* ModelRealmMap.swift in Sources */,
 				F775F9ED28193AA7009A0A1A /* AppDelegate.swift in Sources */,
 				F775F9EF28193AA7009A0A1A /* SceneDelegate.swift in Sources */,
+				F7480FBD28365C2100A63791 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +471,14 @@
 				kind = branch;
 			};
 		};
+		F7F03AF6283657AA00C9404A /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -454,6 +496,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F775FA18281AA351009A0A1A /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		F7F03AF7283657AA00C9404A /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F7F03AF6283657AA00C9404A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		F7F03AF9283657AA00C9404A /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F7F03AF6283657AA00C9404A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		F7F03AFB283657AA00C9404A /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F7F03AF6283657AA00C9404A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
