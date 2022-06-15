@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 import RealmSwift
 class LoginViewController: UIViewController {
     
@@ -13,25 +14,60 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginView: UITextField!
     @IBOutlet weak var passwordView: UITextField!
-    
+    @IBOutlet weak var logInOutlet: UIButton!
+    @IBOutlet weak var registrationOutlet: UIButton!
     var registrationRealm: Results<Users>!
     var user = Users()
     var router: LaunchRouter?
     let realm = try! Realm()
+    
+    
+    
     override func viewWillAppear(_ animated: Bool) {
+        
         router = LaunchRouter(viewController: self)
         registrationRealm = realm.objects(Users.self)
        // realm.configuration.deleteRealmIfMigrationNeeded == true
     }
     
     
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+       // blurColor()
+        settingsTextFields()
+        addObserver()
      // registrationRealm = realm.objects(UserLogin.self)
     }
 
+    func addObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(blurViewLoading), name: UIApplication.willResignActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(normalViewLoading), name: UIApplication.didBecomeActiveNotification, object: nil)
+    }
+    
+   @objc private func blurViewLoading() {
+       let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.regular)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = self.view.frame
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurEffectView.tag = 1
+       self.view.addSubview(blurEffectView)
+       
+    }
+    @objc private func normalViewLoading() {
+        self.view.viewWithTag(1)?.removeFromSuperview()
+    }
+
+    func settingsTextFields() {
+        loginView.autocorrectionType = .no
+        loginView.autocapitalizationType = .none
+        loginView.backgroundColor = .green
+        passwordView.autocorrectionType = .no
+        passwordView.autocapitalizationType = .none
+        passwordView.backgroundColor = .green
+        passwordView.isSecureTextEntry = true
+        
+            }
     private func logInButtonTapped() {
         guard
             let login = loginView.text,
@@ -90,11 +126,11 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func logIn(_ sender: Any) {
-       logInButtonTapped()
-
+        logInButtonTapped()
     }
     
     @IBAction func register(_ sender: Any) {
-        registerButtonTapped()
+       registerButtonTapped()
+
 }
 }
