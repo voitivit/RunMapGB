@@ -7,19 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F775130728205CDE00FEB958 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775130628205CDE00FEB958 /* Router.swift */; };
+		F775130928205CEC00FEB958 /* LaunchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775130828205CEC00FEB958 /* LaunchRouter.swift */; };
 		F775F9ED28193AA7009A0A1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775F9EC28193AA7009A0A1A /* AppDelegate.swift */; };
 		F775F9EF28193AA7009A0A1A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775F9EE28193AA7009A0A1A /* SceneDelegate.swift */; };
 		F775F9F128193AA7009A0A1A /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775F9F028193AA7009A0A1A /* MapController.swift */; };
 		F775F9F428193AA7009A0A1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F775F9F228193AA7009A0A1A /* Main.storyboard */; };
 		F775F9F628193AA8009A0A1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F775F9F528193AA8009A0A1A /* Assets.xcassets */; };
 		F775F9F928193AA8009A0A1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F775F9F728193AA8009A0A1A /* LaunchScreen.storyboard */; };
-		F775FA14281945E4009A0A1A /* ModelRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775FA13281945E4009A0A1A /* ModelRealm.swift */; };
+		F775FA14281945E4009A0A1A /* ModelRealmMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775FA13281945E4009A0A1A /* ModelRealmMap.swift */; };
 		F775FA17281AA2CC009A0A1A /* GoogleMaps in Frameworks */ = {isa = PBXBuildFile; productRef = F775FA16281AA2CC009A0A1A /* GoogleMaps */; };
 		F775FA1A281AA351009A0A1A /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F775FA19281AA351009A0A1A /* Realm */; };
 		F775FA1C281AA351009A0A1A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F775FA1B281AA351009A0A1A /* RealmSwift */; };
+		F79B59C4281FF5BE0015DF30 /* ModelRealmUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79B59C3281FF5BE0015DF30 /* ModelRealmUser.swift */; };
+		F79B59C6281FF5D50015DF30 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79B59C5281FF5D50015DF30 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F775130628205CDE00FEB958 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		F775130828205CEC00FEB958 /* LaunchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchRouter.swift; sourceTree = "<group>"; };
 		F775F9E928193AA7009A0A1A /* RunMapGB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunMapGB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F775F9EC28193AA7009A0A1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F775F9EE28193AA7009A0A1A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,7 +34,9 @@
 		F775F9F528193AA8009A0A1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F775F9F828193AA8009A0A1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F775F9FA28193AA8009A0A1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F775FA13281945E4009A0A1A /* ModelRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelRealm.swift; sourceTree = "<group>"; };
+		F775FA13281945E4009A0A1A /* ModelRealmMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelRealmMap.swift; sourceTree = "<group>"; };
+		F79B59C3281FF5BE0015DF30 /* ModelRealmUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelRealmUser.swift; sourceTree = "<group>"; };
+		F79B59C5281FF5D50015DF30 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +53,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F775130A28205D7800FEB958 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F775130628205CDE00FEB958 /* Router.swift */,
+				F775130828205CEC00FEB958 /* LaunchRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		F775F9E028193AA7009A0A1A = {
 			isa = PBXGroup;
 			children = (
@@ -66,14 +83,33 @@
 			children = (
 				F775F9EC28193AA7009A0A1A /* AppDelegate.swift */,
 				F775F9EE28193AA7009A0A1A /* SceneDelegate.swift */,
-				F775FA13281945E4009A0A1A /* ModelRealm.swift */,
-				F775F9F028193AA7009A0A1A /* MapController.swift */,
+				F775130A28205D7800FEB958 /* Router */,
+				F79B59C2281FF5960015DF30 /* Model */,
+				F79B59C7281FF5DC0015DF30 /* View */,
 				F775F9F228193AA7009A0A1A /* Main.storyboard */,
 				F775F9F528193AA8009A0A1A /* Assets.xcassets */,
 				F775F9F728193AA8009A0A1A /* LaunchScreen.storyboard */,
 				F775F9FA28193AA8009A0A1A /* Info.plist */,
 			);
 			path = RunMapGB;
+			sourceTree = "<group>";
+		};
+		F79B59C2281FF5960015DF30 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F775FA13281945E4009A0A1A /* ModelRealmMap.swift */,
+				F79B59C3281FF5BE0015DF30 /* ModelRealmUser.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F79B59C7281FF5DC0015DF30 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F775F9F028193AA7009A0A1A /* MapController.swift */,
+				F79B59C5281FF5D50015DF30 /* LoginViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,8 +192,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F775130928205CEC00FEB958 /* LaunchRouter.swift in Sources */,
+				F775130728205CDE00FEB958 /* Router.swift in Sources */,
+				F79B59C6281FF5D50015DF30 /* LoginViewController.swift in Sources */,
+				F79B59C4281FF5BE0015DF30 /* ModelRealmUser.swift in Sources */,
 				F775F9F128193AA7009A0A1A /* MapController.swift in Sources */,
-				F775FA14281945E4009A0A1A /* ModelRealm.swift in Sources */,
+				F775FA14281945E4009A0A1A /* ModelRealmMap.swift in Sources */,
 				F775F9ED28193AA7009A0A1A /* AppDelegate.swift in Sources */,
 				F775F9EF28193AA7009A0A1A /* SceneDelegate.swift in Sources */,
 			);
